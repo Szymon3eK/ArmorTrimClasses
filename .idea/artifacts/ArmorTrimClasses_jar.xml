@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ArmorTrimClasses:jar">
+    <output-path>$PROJECT_DIR$/../../Minecraft/pluginExample/plugins</output-path>
+    <root id="archive" name="ArmorTrimClasses.jar">
+      <element id="module-output" name="ArmorTrimClasses" />
+    </root>
+  </artifact>
+</component>

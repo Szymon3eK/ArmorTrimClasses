@@ -1,0 +1,11 @@
+name: ArmorTrimClasses
+version: '${project.version}'
+main: xyz.szymon3ek.armortrimclasses.ArmorTrimClasses
+api-version: '1.20'
+author: Szymon3eK
+description: Plugin do zarządzania klasami
+website: 'https://szymon3ek.xyz'
+commands:
+  klasy:
+    description: Pokazuje dostępne klasy
+    usage: /<command>
