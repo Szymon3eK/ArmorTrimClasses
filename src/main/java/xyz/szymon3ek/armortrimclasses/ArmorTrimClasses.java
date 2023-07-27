@@ -151,7 +151,7 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
             ItemMeta copperMeta = copper.getItemMeta();
             copperMeta.setDisplayName("§6§lMIEDZ");
 
-            List<String> copperlore = new ArrayList<>(); copperlore.add("§8Stajesz sie odporny na ogien!"); copperlore.add("§6+ §7Odpornosc na ogien §6I"); copperlore.add("§6+ §7W ogniu otrzymujesz regeneracje §6I §7a w lawie regeneracje §6II");
+            List<String> copperlore = new ArrayList<>(); copperlore.add("§8Stajesz sie odporny na ogien!"); copperlore.add("§6+ §7Odpornosc na ogien §6I"); copperlore.add("§6+ §7Po chodzeniu po ogniu otrzymujesz regeneracje §6I §7a jak plywasz w lawie dostajesz regeneracje §6II");
 
             copperMeta.setLore(copperlore);
             copper.setItemMeta(copperMeta);
@@ -181,7 +181,7 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
 
 
-            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
+            player.playSound(player.getLocation(), Sound.BLOCK_ENCHANTMENT_TABLE_USE, 1, 1);
             player.openInventory(menu);
 
             return true;
@@ -234,50 +234,50 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
                 //emeraldowy secik (jump
                 if (checkTrimArmor(player, EMERALD)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 25, 2, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 25, 2, true, false));
                 }
 
                 if(checkTrimArmor(player, AMETHYST)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 25, 0, true, false));
                 }
 
                 if(checkTrimArmor(player, LAPIS)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 25, 0, true, false));
                 }
 
                 //zloty secik (haste)
                 if (checkTrimArmor(player, GOLD)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 25, 0, true, false));
                 }
                 //kwarcowy set (speed)
                 if (checkTrimArmor(player, QUARTZ)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 25, 1, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 25, 1, true, false));
                 }
 
 
                 if (checkTrimArmor(player, REDSTONE)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, true, false));
                 }
 
                 if (checkTrimArmor(player, DIAMOND)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 25, 0, false, false));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 25, 1, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 25, 0, true, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 25, 1, true, false));
                 }
 
                 if (checkTrimArmor(player, COPPER)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 25, 0, true, false));
                 }
 
                 if (checkTrimArmor(player, IRON)) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 25, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 25, 0, true, false));
                 }
                 if (checkTrimArmor(player, NETHERITE)) {
                         if (player.getWorld().getName().equals("world_nether")) {
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 25, 1, false, false));
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 1, false, false));
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 1, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 25, 1, true, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 1, true, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 1, true, false));
                         } else {
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 0, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 0, true, false));
                         }
 
                 }
@@ -322,9 +322,11 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
         if (checkTrimArmor(cos, COPPER)) {
             if (cos.getLocation().getBlock().getType() == Material.LAVA) {
-                cos.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 1, false, true));
+                cos.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 1, true, true));
+                cos.getWorld().spawnParticle(Particle.HEART, cos.getLocation().add(0, 2, 0), 10);
             } else if (cos.getLocation().getBlock().getType() == Material.FIRE) {
-                cos.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, false, true));
+                cos.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, true, true));
+                cos.getWorld().spawnParticle(Particle.HEART, cos.getLocation().add(0, 2, 0), 10);
             }
         }
     }
@@ -336,8 +338,8 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
         if (checkTrimArmor(player, DIAMOND)) {
             if (player.getLocation().getBlock().getType() == Material.WATER) {
-                player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, false, true));
-                player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 1, false, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 25, 0, true, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 25, 1, true, true));
             }
         }
 
@@ -365,13 +367,13 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
         if(checkTrimArmor(player, REDSTONE)) {
              if(event.getItem().getType() == Material.GOLDEN_APPLE) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2400, 1, false, false));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2400, 1, true, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2, true, false));
              } else if(event.getItem().getType() == Material.ENCHANTED_GOLDEN_APPLE) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2400, 5, false, false));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2400, 5, true, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2, true, false));
              } else {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 1, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 1, true, false));
 
              }
         }
@@ -402,7 +404,7 @@ public final class ArmorTrimClasses extends JavaPlugin implements Listener, Comm
 
         if (checkTrimArmor(player, GOLD)) {
             if (player.getLocation().getBlockY() <= 20) {
-                player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 400, 4, false, false));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 400, 4, true, false));
             }
         }
     }
